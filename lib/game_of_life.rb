@@ -7,9 +7,8 @@ class GameOfLife
     @grid.each_with_index do |row, i|
       new_row = []
       row.each_with_index do |cell, j|
-        current_val = @grid[i][j]
         neighbor_count = cell_live_neighbor_count(i,j)
-        alive_next_iteration = cell_alive_next_iteration(current_val, neighbor_count)
+        alive_next_iteration = cell_alive_next_iteration(cell, neighbor_count)
         new_row << (alive_next_iteration ? "x" : ".")
       end
       new_grid << new_row
